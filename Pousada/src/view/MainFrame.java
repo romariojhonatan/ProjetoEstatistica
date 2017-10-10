@@ -1,0 +1,145 @@
+package view;
+
+import java.awt.Dimension;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
+import model.Transacao;
+
+/**
+ * 
+ * @author Romário
+ *
+ *Janela principal do sistema.
+ */
+public class MainFrame extends JFrame{
+
+	/** Tabela que aprensentara os dados. */
+	private JTable table;
+
+	/**
+	 * Construtor.
+	 */
+	public MainFrame() {
+		build();
+	}
+
+	/**
+	 * Constrói a janela.
+	 */
+	private void build() {
+		setLayout(new GridBagLayout());
+		setTitle("Gestão de Pousada");
+		buildComponents();
+		setSize(1100, 600);
+		setMinimumSize(new Dimension(400, 300));
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		
+	}
+
+	/**
+	 * Constrói os componentes da janela.
+	 */
+	private void buildComponents() {
+		buildMainPanel();
+		buildButtonPanel();
+	}
+
+	/**
+	 * Constrói o painel de botões.
+	 */
+	private void buildButtonPanel() {
+		JPanel panel = new JPanel(new GridBagLayout());
+		JButton newButton = new JButton("Novo");
+		panel.add(newButton, new GBC(0, 0).horizontal());
+		newButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new transacaoDialog(MainFrame.this);
+			}
+		});
+
+		JButton editButton = new JButton("Alterar");
+		panel.add(editButton, new GBC(0, 1));
+		editButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+
+		JButton deleteButton = new JButton("Excluir");
+		panel.add(deleteButton, new GBC(0, 2));
+		deleteButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+
+		add(panel, new GBC(1, 0));
+	}
+
+	/**
+	 * Constrói o painel principal.
+	 */
+	private void buildMainPanel() {
+		JPanel panel = new JPanel(new GridBagLayout());
+
+		String[] items = { "Nome", "Data" };
+		JComboBox<String> comboBox = new JComboBox<>(items);
+		panel.add(comboBox, new GBC(0, 0));
+
+		JTextField searchField = new JTextField(20);
+		panel.add(searchField, new GBC(1, 0).horizontal());
+
+		buildTable(panel);
+
+		add(panel, new GBC(0, 0).both().insets(10, 5, 5, 0));
+	}
+
+	/**
+	 * Constrói a tabela.
+	 * 
+	 * @param panel
+	 *            Painel principal.
+	 */
+	private void buildTable(JPanel panel) {
+		table = new JTable();
+		table.setModel(new GestaoTableModel());
+		JScrollPane scrollPane = new JScrollPane(table);
+		panel.add(scrollPane, new GBC(0, 1).gridwh(2, 1).both());
+	}
+
+	public void updateTransacao(Transacao transacao, int selectedRow) {
+		GestaoTableModel model = (GestaoTableModel) table.getModel();
+		//
+		model.updateTransacao(transacao, selectedRow);
+	}
+
+	public void addTransacao(Transacao transacao) {	
+		GestaoTableModel model = (GestaoTableModel) table.getModel();
+		//
+		model.addTransacao(transacao);
+	}
+
+	
+
+	
+	
+}
+
