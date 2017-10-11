@@ -1,5 +1,7 @@
 package model;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -20,11 +22,16 @@ public class Utility {
 	}
 	
 	public static java.sql.Date dateToSql(Date date) {
-		return new java.sql.Date(date.getTime());
+		return  new java.sql.Date(date.getTime());
 	}
 	
 	public static Date stringToDate(String date) {
-		return new Date(sdf.format(date));
+		try {
+			return (Date)sdf.parse(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		};
+		return null;
 	}
 	
 

@@ -157,8 +157,8 @@ public class transacaoDialog extends JDialog{
 	private void setFields() {
 		clientField.setText(tran.getCliente());
 		quantHospedesField.setText(Integer.toString(tran.getQuantHospedes()));
-		checkInField.setText(Utility.dateToString(tran.getCheckIn()));
-		checkOutField.setText(Utility.dateToString(tran.getCheckOut()));
+		checkInField.setText(tran.getCheckIn());
+		checkOutField.setText(tran.getCheckOut());
 		quantNoitesField.setText(Integer.toString(tran.getQuantNoites()));
 		tipoUhField.setText(tran.getTipoUh());
 		valDiariaField.setText(Integer.toString(tran.getValDiaria()));

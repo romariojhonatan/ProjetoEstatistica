@@ -14,6 +14,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import model.Transacao;
+import model.dao.TransacaoDao;
 
 /**
  * 
@@ -26,6 +27,8 @@ public class MainFrame extends JFrame{
 	/** Tabela que aprensentara os dados. */
 	private JTable table;
 
+	private TransacaoDao trandao;
+	
 	/**
 	 * Construtor.
 	 */
@@ -77,7 +80,10 @@ public class MainFrame extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				int selectedRow = table.getSelectedRow();
+				GestaoTableModel model = (GestaoTableModel) table.getModel();
+				Transacao tran = model.getRow(selectedRow);
+				new transacaoDialog(MainFrame.this, tran, table.getSelectedRow());
 			}
 		});
 
@@ -87,7 +93,10 @@ public class MainFrame extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				int selectedRow = table.getSelectedRow();
+				GestaoTableModel model = (GestaoTableModel) table.getModel();
+				Transacao tran = model.getRow(selectedRow);
+				excluiTransacao(tran, table.getSelectedRow());
 			}
 		});
 
@@ -125,21 +134,39 @@ public class MainFrame extends JFrame{
 		panel.add(scrollPane, new GBC(0, 1).gridwh(2, 1).both());
 	}
 
+	/**
+	 * Atualiza os dados da transação.
+	 * 
+	 * @param transacao
+	 * @param selectedRow
+	 */
 	public void updateTransacao(Transacao transacao, int selectedRow) {
 		GestaoTableModel model = (GestaoTableModel) table.getModel();
-		//
+		trandao.update(transacao);
 		model.updateTransacao(transacao, selectedRow);
 	}
 
+	/**
+	 * Adiciona uma transação.
+	 * 
+	 * @param transacao
+	 */
 	public void addTransacao(Transacao transacao) {	
 		GestaoTableModel model = (GestaoTableModel) table.getModel();
-		//
+		trandao.toPersist(transacao);
 		model.addTransacao(transacao);
 	}
-
 	
-
-	
-	
+	/**
+	 * Exclui uma transação
+	 * 
+	 * @param tran
+	 * @param row
+	 */
+	private void excluiTransacao(Transacao transacao, int row) {
+		GestaoTableModel model = (GestaoTableModel) table.getModel();
+		trandao.remove(transacao);
+		model.removeTransacao(row);
+	}
 }
 

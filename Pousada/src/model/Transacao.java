@@ -1,32 +1,44 @@
 package model;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Transacao {
 
+	@Id
+	private int idTransacao;
+	
+	@Column
 	private String cliente;
 	
+	@Column
 	private int quantHospedes;
 	
+	@Column
 	private Date checkIn;
 	
+	@Column
 	private Date checkOut;
 	
+	@Column
 	private int quantNoites;
 	
+	@Column
 	private String tipoUh;
 	
+	@Column
 	private int valDiaria;
 	
+	@Column
 	private int valUh;
 	
+	@Column
 	private int valoExtra;
 	
-	/** Formatador da Date*/
-	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
 	public Transacao(String cliente, String quantHospedes, String checkIn, String checkOut, String quantNoites, String tipoUh,
 			String valDiaria, String valUh, String valoExtra) {
 		super();
@@ -57,32 +69,38 @@ public class Transacao {
 		this.quantHospedes = Integer.parseInt(quantHospedes);
 	}
 
-	public Date getCheckIn() {
-		return checkIn;
+	public String getCheckIn() {
+		return Utility.dateToString(checkIn);
 	}
 
 	public void setCheckIn(String checkIn) {
-		Date dateFormated = null;
-		try {
-			dateFormated = sdf.parse(checkIn);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		this.checkIn = Utility.stringToDate(checkIn);
 	}
 
-	public Date getCheckOut() {
-		return checkOut;
+	public String getCheckOut() {
+		return Utility.dateToString(checkOut);
 	}
 
 	public void setCheckOut(String checkOut) {
-		Date dateFormated = null;
-		try {
-			dateFormated = sdf.parse(checkOut);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		this.checkOut = Utility.stringToDate(checkOut);
 	}
 
+	public Date getCheckIn1() {
+		return checkIn;
+	}
+
+	public void setCheckIn(Date checkIn) {
+		this.checkIn = checkIn;
+	}
+
+	public Date getCheckOut1() {
+		return checkOut;
+	}
+
+	public void setCheckOut(Date checkOut) {
+		this.checkOut = checkOut;
+	}
+	
 	public int getQuantNoites() {
 		return quantNoites;
 	}
@@ -123,4 +141,14 @@ public class Transacao {
 		this.valoExtra = Integer.parseInt(valoExtra);
 	}
 
+	public int getIdTransacao() {
+		return idTransacao;
+	}
+
+	public void setIdTransacao(int idTransacao) {
+		this.idTransacao = idTransacao;
+	}
+	
+	
+	
 }
