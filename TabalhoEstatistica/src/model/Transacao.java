@@ -55,6 +55,25 @@ public class Transacao {
 		setValoExtra(valoExtra);
 	}
 
+	public Transacao(int idTransacao ,String cliente, String quantHospedes, String checkIn, String checkOut, String quantNoites, String tipoUh,
+			String valDiaria, String valUh, String valoExtra) {
+		super();
+		this.idTransacao = idTransacao;
+		this.cliente = cliente;
+		setQuantHospedes(quantHospedes);
+		setCheckIn(checkIn);
+		setCheckOut(checkOut);
+		setQuantNoites(quantNoites);
+		this.tipoUh = tipoUh;
+		setValDiaria(valDiaria);
+		setValUh(valUh);
+		setValoExtra(valoExtra);
+	}
+	
+	public Transacao() {
+		
+	}
+
 	public String getCliente() {
 		return cliente;
 	}

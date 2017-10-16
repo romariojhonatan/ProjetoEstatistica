@@ -27,7 +27,7 @@ public class MainFrame extends JFrame{
 	/** Tabela que aprensentara os dados. */
 	private JTable table;
 
-	private TransacaoDao trandao;
+	private TransacaoDao trandao = TransacaoDao.getInstancia();
 	
 	/**
 	 * Construtor.

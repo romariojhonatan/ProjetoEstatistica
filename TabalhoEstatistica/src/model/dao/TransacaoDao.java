@@ -2,10 +2,15 @@ package model.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
 import model.Transacao;
 
 public class TransacaoDao extends DaoGenerico<Transacao>{
 
+	private EntityManager entity = getEntityManager();
+	
 	private static TransacaoDao instancia;
 
 	private TransacaoDao() {
@@ -22,24 +27,7 @@ public class TransacaoDao extends DaoGenerico<Transacao>{
 		}
 	}
 	
-	public void update(Transacao t) {
-		// TODO Auto-generated method stub
-		super.update(t);
-	}
-	
-	private void remo() {
-		// TODO Auto-generated method stub
-
-	}
-	
-	public void toPersist(Transacao t) {
-		// TODO Auto-generated method stub
-		super.toPersist(t);
-	}
-	
-	@Override
-	public List<Transacao> searchAll(Transacao t) {
-		// TODO Auto-generated method stub
-		return super.searchAll(t);
+	public List<Transacao> searchAll() {
+		return entity.createQuery("FROM Transacao t").getResultList();
 	}
 }

@@ -29,8 +29,8 @@ public abstract class DaoGenerico<T> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<T> searchAll(T t) {
-		Query test = entityManager.createQuery("FROM " + t.getClass().getName());
+	public List<T> searchAll(Class<T> clazz) {
+		Query test = entityManager.createQuery("FROM " + clazz.getName());
 		return test.getResultList();
 	}
 

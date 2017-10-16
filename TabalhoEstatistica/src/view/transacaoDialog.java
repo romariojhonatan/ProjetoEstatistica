@@ -170,8 +170,12 @@ public class transacaoDialog extends JDialog{
 	 * @return A transacao com as informações inseridas pelo usuário.
 	 */
 	private Transacao getTransacao() {
-		
-		return new Transacao(clientField.getText(), quantHospedesField.getText(), checkInField.getText(), checkOutField.getText(), quantNoitesField.getText(), tipoUhField.getText(), valDiariaField.getText(), valUhField.getText(), valoExtraField.getText());
+		if (tran != null) {
+			return new Transacao(tran.getIdTransacao() ,clientField.getText(), quantHospedesField.getText(), checkInField.getText(), checkOutField.getText(), quantNoitesField.getText(), tipoUhField.getText(), valDiariaField.getText(), valUhField.getText(), valoExtraField.getText());
+		} else {
+			return new Transacao(clientField.getText(), quantHospedesField.getText(), checkInField.getText(), checkOutField.getText(), quantNoitesField.getText(), tipoUhField.getText(), valDiariaField.getText(), valUhField.getText(), valoExtraField.getText());
+		}
+	
 	}
 	
 }

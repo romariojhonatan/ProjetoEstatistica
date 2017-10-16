@@ -10,17 +10,15 @@ import model.Utility;
 import model.dao.TransacaoDao;
 
 public class GestaoTableModel extends DefaultTableModel{
-
-	private Transacao tran;
 	
 	private String[] columNames = {"Cliente","Quant.Hospedes","check-in","check-out","Quant.Noites","Tipo de Uh","Vl diarias","R$/UH","Gastos extras"};
 
 	private List<Transacao> transacao = new ArrayList<>();
 	
-	private TransacaoDao trandao;
+	private TransacaoDao trandao = TransacaoDao.getInstancia();
 	
 	public GestaoTableModel() {
-		//refresh(trandao.searchAll(tran));
+		refresh(trandao.searchAll());
 	}
 	
 	@Override
@@ -108,7 +106,7 @@ public class GestaoTableModel extends DefaultTableModel{
 	public void refresh(List<Transacao> list){
 		for (int i = 0; i < list.size(); i++) {
 			
-			addTransacao(list.get(1));
+			addTransacao(list.get(i));
 			
 		}
 	}
