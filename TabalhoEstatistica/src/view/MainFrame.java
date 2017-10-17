@@ -70,7 +70,7 @@ public class MainFrame extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new transacaoDialog(MainFrame.this);
+				new TransacaoDialog(MainFrame.this);
 			}
 		});
 
@@ -83,7 +83,7 @@ public class MainFrame extends JFrame{
 				int selectedRow = table.getSelectedRow();
 				GestaoTableModel model = (GestaoTableModel) table.getModel();
 				Transacao tran = model.getRow(selectedRow);
-				new transacaoDialog(MainFrame.this, tran, table.getSelectedRow());
+				new TransacaoDialog(MainFrame.this, tran, table.getSelectedRow());
 			}
 		});
 
@@ -99,6 +99,16 @@ public class MainFrame extends JFrame{
 				excluiTransacao(tran, table.getSelectedRow());
 			}
 		});
+		
+		JButton calculosButton = new JButton("Calcular");
+		panel.add(calculosButton, new GBC(0, 3));
+		calculosButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new CalculoView();
+			}
+		});
 
 		add(panel, new GBC(1, 0));
 	}
@@ -109,11 +119,11 @@ public class MainFrame extends JFrame{
 	private void buildMainPanel() {
 		JPanel panel = new JPanel(new GridBagLayout());
 
-		String[] items = { "Nome", "Data" };
+		String[] items = { "check-in", "check-out" };
 		JComboBox<String> comboBox = new JComboBox<>(items);
 		panel.add(comboBox, new GBC(0, 0));
 
-		JTextField searchField = new JTextField(20);
+		JTextField searchField = new JTextField(10);
 		panel.add(searchField, new GBC(1, 0).horizontal());
 
 		buildTable(panel);

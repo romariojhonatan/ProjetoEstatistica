@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import model.Transacao;
 import model.Utility;
 
-public class transacaoDialog extends JDialog{
+public class TransacaoDialog extends JDialog{
 
 	/** Janela principal do sistema. */
 	private MainFrame mainFrame;
@@ -46,7 +46,7 @@ public class transacaoDialog extends JDialog{
 	 * @param mainframe
 	 * 				Janela principal.
 	 */
-	public transacaoDialog(MainFrame mainframe) {
+	public TransacaoDialog(MainFrame mainframe) {
 		this(mainframe, null, 0);
 	}
 
@@ -60,7 +60,7 @@ public class transacaoDialog extends JDialog{
 	 * @param selectRow
 	 * 				Linha selecionada. 
 	 */
-	public transacaoDialog(MainFrame mainframe, Transacao tran, int selectRow) {
+	public TransacaoDialog(MainFrame mainframe, Transacao tran, int selectRow) {
 		this.mainFrame = mainframe;
 		this.tran = tran;
 		this.selectedRow = selectRow;
@@ -142,7 +142,7 @@ public class transacaoDialog extends JDialog{
 				} else {
 					mainFrame.addTransacao(getTransacao());
 				}
-				transacaoDialog.this.dispose();
+				TransacaoDialog.this.dispose();
 			}
 		});
 		

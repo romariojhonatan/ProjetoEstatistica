@@ -9,14 +9,26 @@ import model.Transacao;
 import model.Utility;
 import model.dao.TransacaoDao;
 
+/**
+ * Classe responsavel por monta a tabela.
+ * 
+ * @author rjmlopes
+ *
+ */
 public class GestaoTableModel extends DefaultTableModel{
 	
+	/*Array de string responsavel pelo nome das colulas da tabela*/
 	private String[] columNames = {"Cliente","Quant.Hospedes","check-in","check-out","Quant.Noites","Tipo de Uh","Vl diarias","R$/UH","Gastos extras"};
 
+	/*ArrayList de Transacao*/
 	private List<Transacao> transacao = new ArrayList<>();
 	
+	/*Construtor de TransacaoDao*/
 	private TransacaoDao trandao = TransacaoDao.getInstancia();
 	
+	/**
+	 * Construtor de GestaoTableModel chamando por padrão o metodo reflesh,
+	 */
 	public GestaoTableModel() {
 		refresh(trandao.searchAll());
 	}
@@ -66,13 +78,23 @@ public class GestaoTableModel extends DefaultTableModel{
 		return transacao.get(rowNumber);
 	}
 
+	/**
+	 * Metodo responsavel pela adição de linha na tabela
+	 * 
+	 * @param tran
+	 */
 	public void addTransacao(Transacao tran) {
 		transacao.add(tran);
 		Object[] tranData = {tran.getCliente(),tran.getQuantHospedes(),tran.getCheckIn(),tran.getCheckOut(),tran.getQuantNoites(),tran.getTipoUh(),tran.getValDiaria(),tran.getValUh(),tran.getValoExtra()};
 		this.addRow(tranData);
 	}
 	
-	//Não esta atualizando.
+	/**
+	 * Metodo responsavel pela atualização de linha na tabela
+	 * 
+	 * @param tran
+	 * @param selectedRow
+	 */
 	public void updateTransacao(Transacao tran, int selectedRow) {
 		for (Transacao t: transacao) {
 			if (t.equals(tran)) {
@@ -98,11 +120,21 @@ public class GestaoTableModel extends DefaultTableModel{
 				this.setValueAt(tran.getValoExtra(), selectedRow, 8); 
 	}
 
+	/**
+	 * Metodo responsavel pela exclusão de linha da tabela
+	 * 
+	 * @param row
+	 */
 	public void removeTransacao(int row) {
 		transacao.remove(row);
 		this.removeRow(row);
 	}
 	
+	/**
+	 * Metodo responsavel pela atualização da tabela junto ao banco.
+	 * 
+	 * @param list
+	 */
 	public void refresh(List<Transacao> list){
 		for (int i = 0; i < list.size(); i++) {
 			
