@@ -5,7 +5,7 @@ import java.util.Date;
 import model.Transacao;
 import model.Utility;
 import model.dao.TransacaoDao;
-import view.CalculoView;
+import view.CalculorDialog;
 import view.MainFrame;
 import view.TransacaoDialog;
 

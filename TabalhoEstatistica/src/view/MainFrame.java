@@ -106,7 +106,7 @@ public class MainFrame extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new CalculoView(MainFrame.this);
+				new CalculorDialog(MainFrame.this);
 			}
 		});
 
