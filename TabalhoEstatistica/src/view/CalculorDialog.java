@@ -166,7 +166,7 @@ public class CalculorDialog extends JDialog{
 				
 				boolean valido = validacao(calculo,tipo,de,ate,ano);
 				
-				double resutado;
+				double resutado = 0;
 				
 				if (valido) {
 					Date deDate = model.Utility.stringToDate("01/01/2017");
@@ -222,13 +222,13 @@ public class CalculorDialog extends JDialog{
 						ateDate = model.Utility.stringToDate("31/03/2017");
 						break;
 					case "Abril":
-						ateDate = model.Utility.stringToDate("31/04/2017");
+						ateDate = model.Utility.stringToDate("30/04/2017");
 						break;
 					case "Maio":
 						ateDate = model.Utility.stringToDate("31/05/2017");
 						break;
 					case "Junho":
-						ateDate = model.Utility.stringToDate("31/06/2017");
+						ateDate = model.Utility.stringToDate("30/06/2017");
 						break;
 					case "Julho":
 						ateDate = model.Utility.stringToDate("31/07/2017");
@@ -237,13 +237,13 @@ public class CalculorDialog extends JDialog{
 						ateDate = model.Utility.stringToDate("31/08/2017");
 						break;
 					case "Setembro":
-						ateDate = model.Utility.stringToDate("31/09/2017");
+						ateDate = model.Utility.stringToDate("30/09/2017");
 						break;
 					case "Outubro":
 						ateDate = model.Utility.stringToDate("31/10/2017");
 						break;
 					case "Novembro":
-						ateDate = model.Utility.stringToDate("31/11/2017");
+						ateDate = model.Utility.stringToDate("30/11/2017");
 						break;
 					case "Dezembro":
 						ateDate = model.Utility.stringToDate("31/12/2017");
@@ -267,95 +267,97 @@ public class CalculorDialog extends JDialog{
 					case "Média de Reservas":
 						switch (tipo) {
 						case "Mensal":
-							resutado = model.dao.TransacaoDao.mediaMensal(deDate,"Reservas");
+							resutado = model.dao.TransacaoDao.mediaMensal(deDate,1);
 							break;
 						case "Anual":
-							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,"Reservas");
+							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,1);
 							break;
 						case "Periodo":
-							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,"Reservas");
+							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,1);
 							break;
 						}
 						break;
 					case "Média de Noites":
 						switch (tipo) {
 						case "Mensal":
-							resutado = model.dao.TransacaoDao.mediaMensal(deDate,"Noites");
+							resutado = model.dao.TransacaoDao.mediaMensal(deDate,2);
 							break;
 						case "Anual":
-							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,"Noites");
+							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,2);
 							break;
 						case "Periodo":
-							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,"Noites");
+							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,2);
 							break;
 						}
 						break;
 					case "Média de Diárias":
 						switch (tipo) {
 						case "Mensal":
-							resutado = model.dao.TransacaoDao.mediaMensal(deDate,"Diarias");
+							resutado = model.dao.TransacaoDao.mediaMensal(deDate,3);
 							break;
 						case "Anual":
-							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,"Diarias");
+							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,3);
 							break;
 						case "Periodo":
-							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,"Diarias");
+							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,3);
 							break;
 						}
 						break;
 					case "Média de Gastos Extras":
 						switch (tipo) {
 						case "Mensal":
-							resutado = model.dao.TransacaoDao.mediaMensal(deDate,"Extras");
+							resutado = model.dao.TransacaoDao.mediaMensal(deDate,4);
 							break;
 						case "Anual":
-							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,"Extras");
+							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,4);
 							break;
 						case "Periodo":
-							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,"Extras");
+							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,4);
 							break;
 						}
 						break;
 					case "Média de Gasto Total":
 						switch (tipo) {
 						case "Mensal":
-							resutado = model.dao.TransacaoDao.mediaMensal(deDate,"Total");
+							resutado = model.dao.TransacaoDao.mediaMensal(deDate,5);
 							break;
 						case "Anual":
-							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,"Total");
+							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,5);
 							break;
 						case "Periodo":
-							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,"Total");
+							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,5);
 							break;
 						}
 						break;
 					case "Média de Pessoas":
 						switch (tipo) {
 						case "Mensal":
-							resutado = model.dao.TransacaoDao.mediaMensal(deDate,"Pessoas");
+							resutado = model.dao.TransacaoDao.mediaMensal(deDate,6);
 							break;
 						case "Anual":
-							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,"Pessoas");
+							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,6);
 							break;
 						case "Periodo":
-							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,"Pessoas");
+							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,6);
 							break;
 						}
 						break;
 					case "Média Ocupapação":
 						switch (tipo) {
 						case "Mensal":
-							resutado = model.dao.TransacaoDao.mediaMensal(deDate,"Ocupapacao");
+							resutado = model.dao.TransacaoDao.mediaMensal(deDate,7);
 							break;
 						case "Anual":
-							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,"Ocupapacao");
+							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,7);
 							break;
 						case "Periodo":
-							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,"Ocupapacao");
+							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,7);
 							break;
 						}
 						break;
 					}
+					
+					resultTextField.setText(Double.toString(resutado));
 				}
 			}
 
