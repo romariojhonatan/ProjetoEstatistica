@@ -33,26 +33,27 @@ public class TransacaoDao extends DaoGenerico<Transacao>{
 		return entity.createQuery("FROM Transacao t").getResultList();
 	}
 
-	public static double mediaMensal(Date deDate, int i) {
+	public double mediaMensal(Date deDate, int i) {
 		System.out.println(model.Utility.dateToString(deDate));
 		System.out.println(i);
 		return 0;
 	}
 
-	public static double mediaAnual(Date anoDate, int i) {
+	public double mediaAnual(Date anoDate, int i) {
 		System.out.println(model.Utility.dateToString(anoDate));
 		System.out.println(i);		
 		return 0;
 	}
 
-	public static double mediaPeriodo(Date deDate, Date ateDate, int i) {		
+	public double mediaPeriodo(Date deDate, Date ateDate, int i) {		
 		//1 - "Média de Reservas",2 - "Média de Noites", 
 		//3 - "Média de Diárias", 4 - "Média de Gastos Extras", 5 - "Média de Gasto Total", 
 		//6 - "Média de Pessoas", 7 - "Média Ocupapação"
 		
-		/*
+		
 		Query query = entity.createQuery("SELECT t FROM Transacao t WHERE t.checkIn BETWEEN :dataInicial AND :dataFinal");
-		System.out.println(query);
+		System.out.println(Utility.dateToString(deDate));
+		System.out.println(Utility.dateToString(ateDate));
 		query.setParameter("dataInicial", Utility.dateToSql(deDate));
 		query.setParameter("dataFinal", Utility.dateToSql(ateDate));
 		List<Transacao> list = query.getResultList();
@@ -91,7 +92,7 @@ public class TransacaoDao extends DaoGenerico<Transacao>{
 			
 			break;
 		}
-		*/
+		
 		return 0;
 	}
 

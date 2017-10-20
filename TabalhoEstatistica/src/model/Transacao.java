@@ -34,13 +34,13 @@ public class Transacao {
 	private String tipoUh;
 	
 	@Column
-	private int valDiaria;
+	private double valDiaria;
 	
 	@Column
-	private int valUh;
+	private double valUh;
 	
 	@Column
-	private int valoExtra;
+	private double valoExtra;
 	
 	public Transacao(String cliente, String quantHospedes, String checkIn, String checkOut, String quantNoites, String tipoUh,
 			String valDiaria, String valUh, String valoExtra) {
@@ -139,28 +139,28 @@ public class Transacao {
 		this.tipoUh = tipoUh;
 	}
 
-	public int getValDiaria() {
+	public double getValDiaria() {
 		return valDiaria;
 	}
 
 	public void setValDiaria(String valDiaria) {
-		this.valDiaria = Integer.parseInt(valDiaria);
+		this.valDiaria = Double.parseDouble(valDiaria);
 	}
 
-	public int getValUh() {
+	public double getValUh() {
 		return valUh;
 	}
 
 	public void setValUh(String valUh) {
-		this.valUh = Integer.parseInt(valUh);
+		this.valUh = Double.parseDouble(valUh);
 	}
 
-	public int getValoExtra() {
+	public double getValoExtra() {
 		return valoExtra;
 	}
 
 	public void setValoExtra(String valoExtra) {
-		this.valoExtra = Integer.parseInt(valoExtra);
+		this.valoExtra = Double.parseDouble(valoExtra);
 	}
 
 	public int getIdTransacao() {

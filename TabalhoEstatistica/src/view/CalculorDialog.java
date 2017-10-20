@@ -15,11 +15,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import model.Transacao;
+import model.dao.TransacaoDao;
 
 public class CalculorDialog extends JDialog{
 
 	/** Janela principal do sistema. */
 	private MainFrame mainFrame;
+	
+	private TransacaoDao tran = TransacaoDao.getInstancia();
 	
 	private String[] calculos = {  "Selecione o Caulculo", "Média de Reservas", "Média de Noites", 
 			"Média de Diárias", "Média de Gastos Extras","Média de Gasto Total", 
@@ -267,91 +270,91 @@ public class CalculorDialog extends JDialog{
 					case "Média de Reservas":
 						switch (tipo) {
 						case "Mensal":
-							resutado = model.dao.TransacaoDao.mediaMensal(deDate,1);
+							resutado = tran.mediaMensal(deDate,1);
 							break;
 						case "Anual":
-							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,1);
+							resutado = tran.mediaAnual(anoDate,1);
 							break;
 						case "Periodo":
-							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,1);
+							resutado = tran.mediaPeriodo(deDate,ateDate,1);
 							break;
 						}
 						break;
 					case "Média de Noites":
 						switch (tipo) {
 						case "Mensal":
-							resutado = model.dao.TransacaoDao.mediaMensal(deDate,2);
+							resutado = tran.mediaMensal(deDate,2);
 							break;
 						case "Anual":
-							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,2);
+							resutado = tran.mediaAnual(anoDate,2);
 							break;
 						case "Periodo":
-							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,2);
+							resutado = tran.mediaPeriodo(deDate,ateDate,2);
 							break;
 						}
 						break;
 					case "Média de Diárias":
 						switch (tipo) {
 						case "Mensal":
-							resutado = model.dao.TransacaoDao.mediaMensal(deDate,3);
+							resutado = tran.mediaMensal(deDate,3);
 							break;
 						case "Anual":
-							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,3);
+							resutado = tran.mediaAnual(anoDate,3);
 							break;
 						case "Periodo":
-							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,3);
+							resutado = tran.mediaPeriodo(deDate,ateDate,3);
 							break;
 						}
 						break;
 					case "Média de Gastos Extras":
 						switch (tipo) {
 						case "Mensal":
-							resutado = model.dao.TransacaoDao.mediaMensal(deDate,4);
+							resutado = tran.mediaMensal(deDate,4);
 							break;
 						case "Anual":
-							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,4);
+							resutado = tran.mediaAnual(anoDate,4);
 							break;
 						case "Periodo":
-							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,4);
+							resutado = tran.mediaPeriodo(deDate,ateDate,4);
 							break;
 						}
 						break;
 					case "Média de Gasto Total":
 						switch (tipo) {
 						case "Mensal":
-							resutado = model.dao.TransacaoDao.mediaMensal(deDate,5);
+							resutado = tran.mediaMensal(deDate,5);
 							break;
 						case "Anual":
-							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,5);
+							resutado = tran.mediaAnual(anoDate,5);
 							break;
 						case "Periodo":
-							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,5);
+							resutado = tran.mediaPeriodo(deDate,ateDate,5);
 							break;
 						}
 						break;
 					case "Média de Pessoas":
 						switch (tipo) {
 						case "Mensal":
-							resutado = model.dao.TransacaoDao.mediaMensal(deDate,6);
+							resutado = tran.mediaMensal(deDate,6);
 							break;
 						case "Anual":
-							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,6);
+							resutado = tran.mediaAnual(anoDate,6);
 							break;
 						case "Periodo":
-							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,6);
+							resutado = tran.mediaPeriodo(deDate,ateDate,6);
 							break;
 						}
 						break;
 					case "Média Ocupapação":
 						switch (tipo) {
 						case "Mensal":
-							resutado = model.dao.TransacaoDao.mediaMensal(deDate,7);
+							resutado = tran.mediaMensal(deDate,7);
 							break;
 						case "Anual":
-							resutado = model.dao.TransacaoDao.mediaAnual(anoDate,7);
+							resutado = tran.mediaAnual(anoDate,7);
 							break;
 						case "Periodo":
-							resutado = model.dao.TransacaoDao.mediaPeriodo(deDate,ateDate,7);
+							resutado = tran.mediaPeriodo(deDate,ateDate,7);
 							break;
 						}
 						break;

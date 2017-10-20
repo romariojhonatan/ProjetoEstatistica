@@ -161,9 +161,9 @@ public class TransacaoDialog extends JDialog{
 		checkOutField.setText(tran.getCheckOut());
 		quantNoitesField.setText(Integer.toString(tran.getQuantNoites()));
 		tipoUhField.setText(tran.getTipoUh());
-		valDiariaField.setText(Integer.toString(tran.getValDiaria()));
-		valUhField.setText(Integer.toString(tran.getValUh()));
-		valoExtraField.setText(Integer.toString(tran.getValoExtra()));
+		valDiariaField.setText(Double.toString(tran.getValDiaria()));
+		valUhField.setText(Double.toString(tran.getValUh()));
+		valoExtraField.setText(Double.toString(tran.getValoExtra()));
 	}
 
 	/**

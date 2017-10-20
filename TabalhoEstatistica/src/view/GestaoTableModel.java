@@ -104,9 +104,9 @@ public class GestaoTableModel extends DefaultTableModel{
 				t.setCheckOut(tran.getCheckOut()); 
 				t.setQuantNoites(Integer.toString(tran.getQuantNoites())); 
 				t.setTipoUh(tran.getTipoUh()); 
-				t.setValDiaria(Integer.toString(tran.getValDiaria())); 
-				t.setValUh(Integer.toString(tran.getValUh())); 
-				t.setValoExtra(Integer.toString(tran.getValoExtra())); 
+				t.setValDiaria(Double.toString(tran.getValDiaria())); 
+				t.setValUh(Double.toString(tran.getValUh())); 
+				t.setValoExtra(Double.toString(tran.getValoExtra())); 
 			}
 		}
 				this.setValueAt(tran.getCliente(), selectedRow, 0); 
