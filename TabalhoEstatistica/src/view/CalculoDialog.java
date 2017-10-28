@@ -17,14 +17,14 @@ import javax.swing.JTextField;
 import model.Transacao;
 import model.dao.TransacaoDao;
 
-public class CalculorDialog extends JDialog{
+public class CalculoDialog extends JDialog{
 
 	/** Janela principal do sistema. */
 	private MainFrame mainFrame;
 	
 	private TransacaoDao tran = TransacaoDao.getInstancia();
 	
-	private String[] calculos = {  "Selecione o Caulculo", "Média de Reservas", "Média de Noites", 
+	private String[] calculos = {  "Selecione o Cálculo", "Média de Reservas", "Média de Noites", 
 			"Média de Diárias", "Média de Gastos Extras","Média de Gasto Total", 
 			"Média de Pessoas", "Média Ocupapação"};
 	
@@ -56,7 +56,7 @@ public class CalculorDialog extends JDialog{
 	 * @param mainframe
 	 * 				Janela principal.
 	 */
-	public CalculorDialog(MainFrame mainFrame) {
+	public CalculoDialog(MainFrame mainFrame) {
 		build();
 	}
 
@@ -87,11 +87,11 @@ public class CalculorDialog extends JDialog{
 	private void primeiraLinha() {
 		JPanel panel = new JPanel(new GridBagLayout());
 		
-		JLabel jLabel1 = new JLabel("Qual tipo de Qualculo:");
+		JLabel jLabel1 = new JLabel("Escolha o tipo de cálculo:");
 		panel.add(jLabel1, new GBC(0, 0));
 		panel.add(calculoComboBox, new GBC(1, 0));
 		
-		JLabel jLabel2 = new JLabel("Tipo de calculo:");
+		JLabel jLabel2 = new JLabel("Tipo de cálculo:");
 		panel.add(jLabel2, new GBC(2, 0));
 		panel.add(tipoComboBox, new GBC(3, 0));
 		tipoComboBox.addActionListener(new ActionListener(){
@@ -366,21 +366,21 @@ public class CalculorDialog extends JDialog{
 
 			private boolean validacao(String calculo, String tipo, String de, String ate, String ano) {
 				
-				if (calculo.equals("Selecione o Caulculo")) {
-					JOptionPane.showMessageDialog(null, "Tem que Selecione um Caulculo");
+				if (calculo.equals("Selecione o Cálculo")) {
+					JOptionPane.showMessageDialog(null, "Tem que Selecionar um Cálculo", "Atenção", JOptionPane.ERROR_MESSAGE);
 					return false;
 				} else {
 					if (tipo.equals("Selecione Tipo")) {
-						JOptionPane.showMessageDialog(null, "Tem que Selecione um Tipo");
+						JOptionPane.showMessageDialog(null, "Tem que Selecionar um Tipo", "Atenção", JOptionPane.ERROR_MESSAGE);
 						return false;
 					}else {
 						if (tipo.equals("Mensal")) {
-							if (de.equals("Selecione Mes")) {
-								JOptionPane.showMessageDialog(null, "Tem que Selecione um Mes");
+							if (de.equals("Selecione Mês")) {
+								JOptionPane.showMessageDialog(null, "Tem que Selecionar um Mês", "Atenção", JOptionPane.ERROR_MESSAGE);
 								return false;
 							}else {
 								if (ano.equals("Selecione Ano")) {
-									JOptionPane.showMessageDialog(null, "Tem que Selecione um Ano");
+									JOptionPane.showMessageDialog(null, "Tem que Selecionar um Ano", "Atenção", JOptionPane.ERROR_MESSAGE);
 									return false;
 								} else {
 									return true;
@@ -389,23 +389,23 @@ public class CalculorDialog extends JDialog{
 						} else {
 							if (tipo.equals("Anual")) {
 								if (ano.equals("Selecione Ano")) {
-									JOptionPane.showMessageDialog(null, "Tem que Selecione um Ano");
+									JOptionPane.showMessageDialog(null, "Tem que Selecionar um Ano");
 									return false;
 								} else {
 									return true;
 								}
 							} else {
 								if (tipo.equals("Periodo")) {
-									if (de.equals("Selecione Mes")) {
-										JOptionPane.showMessageDialog(null, "Tem que Selecione um Mes");
+									if (de.equals("Selecione Mês")) {
+										JOptionPane.showMessageDialog(null, "Tem que Selecionar um Mês");
 										return false;
 									} else {
-										if (ate.equals("Selecione Mes")) {
-											JOptionPane.showMessageDialog(null, "Tem que Selecione um Mes");
+										if (ate.equals("Selecione Mês")) {
+											JOptionPane.showMessageDialog(null, "Tem que Selecionar um Mês");
 											return false;
 										} else {
 											if (ano.equals("Selecione Ano")) {
-												JOptionPane.showMessageDialog(null, "Tem que Selecione um Ano");
+												JOptionPane.showMessageDialog(null, "Tem que Selecionar um Ano");
 												return false;
 											} else {
 												return true;

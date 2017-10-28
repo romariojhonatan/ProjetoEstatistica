@@ -75,7 +75,7 @@ public class MainFrame extends JFrame{
 		});
 
 		JButton editButton = new JButton("Alterar");
-		panel.add(editButton, new GBC(0, 1));
+		panel.add(editButton, new GBC(0, 1).horizontal());
 		editButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -88,7 +88,7 @@ public class MainFrame extends JFrame{
 		});
 
 		JButton deleteButton = new JButton("Excluir");
-		panel.add(deleteButton, new GBC(0, 2));
+		panel.add(deleteButton, new GBC(0, 2).horizontal());
 		deleteButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -101,12 +101,12 @@ public class MainFrame extends JFrame{
 		});
 		
 		JButton calculosButton = new JButton("Calcular");
-		panel.add(calculosButton, new GBC(0, 3));
+		panel.add(calculosButton, new GBC(0, 3).horizontal());
 		calculosButton.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new CalculorDialog(MainFrame.this);
+				new CalculoDialog(MainFrame.this);
 			}
 		});
 

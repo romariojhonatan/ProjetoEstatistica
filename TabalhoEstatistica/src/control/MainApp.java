@@ -3,7 +3,7 @@ package control;
 import model.Transacao;
 import model.Utility;
 import model.dao.TransacaoDao;
-import view.CalculorDialog;
+import view.CalculoDialog;
 import view.MainFrame;
 
 public class MainApp {

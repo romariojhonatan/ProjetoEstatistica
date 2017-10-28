@@ -56,7 +56,7 @@ public class Transacao {
 		setValoExtra(valoExtra);
 	}
 
-	public Transacao(int idTransacao ,String cliente, String quantHospedes, String checkIn, String checkOut, String quantNoites, String tipoUh,
+	public Transacao(int idTransacao, String cliente, String quantHospedes, String checkIn, String checkOut, String quantNoites, String tipoUh,
 			String valDiaria, String valUh, String valoExtra) {
 		super();
 		this.idTransacao = idTransacao;
@@ -169,8 +169,6 @@ public class Transacao {
 
 	public void setIdTransacao(int idTransacao) {
 		this.idTransacao = idTransacao;
-	}
-	
-	
+	}	
 	
 }

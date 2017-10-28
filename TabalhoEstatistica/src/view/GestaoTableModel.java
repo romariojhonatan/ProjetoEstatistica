@@ -17,7 +17,7 @@ import model.dao.TransacaoDao;
  */
 public class GestaoTableModel extends DefaultTableModel{
 	
-	/*Array de string responsavel pelo nome das colulas da tabela*/
+	/*Array de string responsável pelo nome das colunas da tabela*/
 	private String[] columNames = {"Cliente","Quant.Hospedes","check-in","check-out","Quant.Noites","Tipo de Uh","Vl diarias","R$/UH","Gastos extras"};
 
 	/*ArrayList de Transacao*/
@@ -27,7 +27,7 @@ public class GestaoTableModel extends DefaultTableModel{
 	private TransacaoDao trandao = TransacaoDao.getInstancia();
 	
 	/**
-	 * Construtor de GestaoTableModel chamando por padrão o metodo reflesh,
+	 * Construtor de GestaoTableModel chamando por padrão o método refresh,
 	 */
 	public GestaoTableModel() {
 		refresh(trandao.searchAll());
