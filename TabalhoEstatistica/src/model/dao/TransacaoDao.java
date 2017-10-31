@@ -52,36 +52,42 @@ public class TransacaoDao extends DaoGenerico<Transacao>{
 		
 		
 		Query query = entity.createQuery("SELECT t FROM Transacao t WHERE t.checkIn BETWEEN :dataInicial AND :dataFinal");
-		System.out.println(Utility.dateToString(deDate));
-		System.out.println(Utility.dateToString(ateDate));
 		query.setParameter("dataInicial", Utility.dateToSql(deDate));
 		query.setParameter("dataFinal", Utility.dateToSql(ateDate));
 		List<Transacao> list = query.getResultList();
 		
-		double cont = list.size() + 1;
-		double soma = 0;
+		long quantidadeDias = (Utility.dateToSql(ateDate).getTime() - Utility.dateToSql(deDate).getTime()) + 3600000;
+		quantidadeDias = (quantidadeDias / 86400000L) + 1;
+		
+		long cont = list.size();
+		long soma = 0;
+		int quantidadeNoites = 0;
 		
 		switch (i) {
+		//Realiza a media de reserva. Quantidade de reserva dividida pela quantidade de dias
 		case 1:
-			return cont;
+			return cont / quantidadeDias;
+		//Realiza a media de quantidade de noites. Quantidade de noites dividida pela quantidade de reserva.
 		case 2:
 			soma = 0;
 			for (int j = 0; j < list.size(); j++) {
-				soma = soma + list.get(i).getQuantNoites();
+				soma += list.get(j).getQuantNoites();
 			}
 			return soma / cont;
+		//Realiza a media de diarias. Valor da diaria vezes quantidade de noites dividido pela quantidade de reserva.
 		case 3:
 			soma = 0;
 			for (int j = 0; j < list.size(); j++) {
-				soma = soma + list.get(i).getValDiaria();
+				soma += list.get(j).getValUh();
+				quantidadeNoites += list.get(j).getQuantNoites();
 			}
-			return soma / cont;
+			return soma / quantidadeNoites;
 		case 4:
 			soma = 0;
 			for (int j = 0; j < list.size(); j++) {
-				soma = soma + list.get(i).getValoExtra();
+				soma += list.get(j).getValoExtra();
 			}
-			return soma / cont;
+			return soma / quantidadeNoites;
 		case 5:
 			
 			break;
