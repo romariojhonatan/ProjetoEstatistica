@@ -6,12 +6,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import model.Transacao;
-import model.Utility;
 
 public class TransacaoDialog extends JDialog{
 

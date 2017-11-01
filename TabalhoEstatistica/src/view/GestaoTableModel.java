@@ -6,7 +6,6 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 import model.Transacao;
-import model.Utility;
 import model.dao.TransacaoDao;
 
 /**

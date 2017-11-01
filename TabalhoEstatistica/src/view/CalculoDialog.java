@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import model.Transacao;
 import model.dao.TransacaoDao;
 
 public class CalculoDialog extends JDialog{
@@ -389,7 +387,7 @@ public class CalculoDialog extends JDialog{
 						} else {
 							if (tipo.equals("Anual")) {
 								if (ano.equals("Selecione Ano")) {
-									JOptionPane.showMessageDialog(null, "Tem que Selecionar um Ano");
+									JOptionPane.showMessageDialog(null, "Tem que Selecionar um Ano", "Atenção", JOptionPane.ERROR_MESSAGE);
 									return false;
 								} else {
 									return true;
@@ -397,15 +395,15 @@ public class CalculoDialog extends JDialog{
 							} else {
 								if (tipo.equals("Periodo")) {
 									if (de.equals("Selecione Mês")) {
-										JOptionPane.showMessageDialog(null, "Tem que Selecionar um Mês");
+										JOptionPane.showMessageDialog(null, "Tem que Selecionar um Mês", "Atenção", JOptionPane.ERROR_MESSAGE);
 										return false;
 									} else {
 										if (ate.equals("Selecione Mês")) {
-											JOptionPane.showMessageDialog(null, "Tem que Selecionar um Mês");
+											JOptionPane.showMessageDialog(null, "Tem que Selecionar um Mês", "Atenção", JOptionPane.ERROR_MESSAGE);
 											return false;
 										} else {
 											if (ano.equals("Selecione Ano")) {
-												JOptionPane.showMessageDialog(null, "Tem que Selecionar um Ano");
+												JOptionPane.showMessageDialog(null, "Tem que Selecionar um Ano", "Atenção", JOptionPane.ERROR_MESSAGE);
 												return false;
 											} else {
 												return true;
