@@ -26,9 +26,9 @@ public class CalculoDialog extends JDialog{
 	
 	private String[] calculos = {  "Selecione o Cálculo", "Média de Reservas", "Média de Noites", 
 			"Média de Diárias", "Média de Gastos Extras","Média de Gasto Total", 
-			"Média de Pessoas", "Média Ocupapação"};
+			"Média de Pessoas", "Média Ocupação"};
 	
-	private String[] mes = { "Selecione Mes", "Janeiro", "Fevereiro", "Março", "Abril", 
+	private String[] mes = { "Selecione Mês", "Janeiro", "Fevereiro", "Março", "Abril", 
 			"Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", 
 			"Novembro", "Dezembro"};
 	
@@ -68,7 +68,7 @@ public class CalculoDialog extends JDialog{
 		buildComponents();
 		pack();
 		setResizable(false);
-		setTitle("Calculos");
+		setTitle("Cálculos");
 		setLocationRelativeTo(mainFrame);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setModal(true);
@@ -87,11 +87,11 @@ public class CalculoDialog extends JDialog{
 	private void primeiraLinha() {
 		JPanel panel = new JPanel(new GridBagLayout());
 		
-		JLabel jLabel1 = new JLabel("Escolha o tipo de cálculo:");
+		JLabel jLabel1 = new JLabel("Escolha o Tipo de Cálculo:");
 		panel.add(jLabel1, new GBC(0, 0));
 		panel.add(calculoComboBox, new GBC(1, 0));
 		
-		JLabel jLabel2 = new JLabel("Tipo de cálculo:");
+		JLabel jLabel2 = new JLabel("Tipo de Cálculo:");
 		panel.add(jLabel2, new GBC(2, 0));
 		panel.add(tipoComboBox, new GBC(3, 0));
 		tipoComboBox.addActionListener(new ActionListener(){
@@ -114,7 +114,7 @@ public class CalculoDialog extends JDialog{
 					ateComboBox.setEnabled(false);
 					anoComboBox.setEnabled(true);
 				
-				} if (item.equals("Periodo")) {
+				} if (item.equals("Período")) {
 					deComboBox.setEnabled(true);
 					ateComboBox.setEnabled(true);
 					anoComboBox.setEnabled(true);	

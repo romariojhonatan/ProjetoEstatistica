@@ -13,7 +13,7 @@ public class MainApp {
 //		double r = t.mediaPeriodo(Utility.stringToDate("01/01/2017"), Utility.stringToDate("28/02/2017"), 1);
 //		System.out.println(r);
 		//new TransacaoDialog(null);
-		//new CalculorDialog(null);
+//		new CalculoDialog(null);
 		new MainFrame();
 	}
 }

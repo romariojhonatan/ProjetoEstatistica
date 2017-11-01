@@ -179,4 +179,3 @@ public class MainFrame extends JFrame{
 		model.removeTransacao(row);
 	}
 }
-

@@ -18,7 +18,7 @@ import model.dao.TransacaoDao;
 public class GestaoTableModel extends DefaultTableModel{
 	
 	/*Array de string responsável pelo nome das colunas da tabela*/
-	private String[] columNames = {"Cliente","Quant.Hospedes","check-in","check-out","Quant.Noites","Tipo de Uh","Vl diarias","R$/UH","Gastos extras"};
+	private String[] columNames = {"Cliente","Quant.Hóspedes","check-in","check-out","Quant.Noites","Tipo de Uh","Vl diárias","R$/UH","Gastos extras"};
 
 	/*ArrayList de Transacao*/
 	private List<Transacao> transacao = new ArrayList<>();
@@ -141,6 +141,5 @@ public class GestaoTableModel extends DefaultTableModel{
 			addTransacao(list.get(i));
 			
 		}
-	}
-	
+	}	
 }

@@ -91,7 +91,7 @@ public class TransacaoDialog extends JDialog{
 		clientField = new JTextField(20);
 		add(clientField, new GBC(1, 0).insets(10, 10, 0, 0));
 		
-		JLabel jLabe2 = new JLabel("Quantidade de Hospedes:");
+		JLabel jLabe2 = new JLabel("Quantidade de Hóspedes:");
 		add(jLabe2, new GBC(0, 1).left().insets(10, 10, 0, 0));
 		quantHospedesField = new JTextField(20);
 		add(quantHospedesField, new GBC(1, 1).insets(10, 10, 0, 0));
@@ -116,7 +116,7 @@ public class TransacaoDialog extends JDialog{
 		tipoUhField = new JTextField(20);
 		add(tipoUhField, new GBC(1, 5).insets(10, 10, 0, 0));
 		
-		JLabel jLabel7 = new JLabel("Valor da Diaria:");
+		JLabel jLabel7 = new JLabel("Valor da Diária:");
 		add(jLabel7, new GBC(0, 6).left().insets(10, 10, 0, 0));
 		valDiariaField = new JTextField(20);
 		add(valDiariaField, new GBC(1, 6).insets(10, 10, 0, 0));
@@ -174,8 +174,6 @@ public class TransacaoDialog extends JDialog{
 			return new Transacao(tran.getIdTransacao() ,clientField.getText(), quantHospedesField.getText(), checkInField.getText(), checkOutField.getText(), quantNoitesField.getText(), tipoUhField.getText(), valDiariaField.getText(), valUhField.getText(), valoExtraField.getText());
 		} else {
 			return new Transacao(clientField.getText(), quantHospedesField.getText(), checkInField.getText(), checkOutField.getText(), quantNoitesField.getText(), tipoUhField.getText(), valDiariaField.getText(), valUhField.getText(), valoExtraField.getText());
-		}
-	
-	}
-	
+		}	
+	}	
 }
